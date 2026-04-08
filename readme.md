@@ -173,3 +173,197 @@ El uso de Swagger me ayudó a entender la relevancia de documentar correctamente
 También considero que trabajar con C#, HTML y Python dentro de un mismo proyecto fortaleció mi capacidad para integrar tecnologías diferentes y adaptarlas a un objetivo común. Esta experiencia me dejó una mejor comprensión del desarrollo backend y de la necesidad de construir sistemas ordenados, escalables y bien documentados.
 
 En conclusión, este proyecto no solo representó una actividad académica, sino también una oportunidad para aprender, reforzar conocimientos y desarrollar una visión más profesional sobre la construcción de aplicaciones modernas.
+
+
+## Temas de estudio – Aplicaciones distribuidas en .NET
+
+Resumen de conceptos clave para una API distribuida construida en C# con ASP.NET Core, EF Core, RabbitMQ, Docker y Kubernetes.
+
+---
+
+## Introducción a aplicaciones distribuidas
+
+Una **aplicación distribuida** está compuesta por varios componentes (servicios, APIs, bases de datos, etc.) que se ejecutan en distintas máquinas pero colaboran como un solo sistema.  
+Es muy común en arquitecturas de microservicios, donde cada servicio puede tener su propia base de datos y se comunican mediante HTTP y mensajería (por ejemplo, API Gateway + RabbitMQ).
+
+---
+
+## Patrón API Gateway
+
+El patrón **API Gateway** actúa como **único punto de entrada** para los clientes (frontend, móviles, terceros) hacia todos los servicios internos.  
+Funcionalidades típicas:
+
+- Enrutamiento de peticiones a los servicios adecuados.  
+- Autenticación y autorización centralizada.  
+- Limitación de llamadas (rate limiting).  
+- Caché y agregación de respuestas.
+
+---
+
+## RabbitMQ
+
+**RabbitMQ** es un *message broker* que permite la comunicación **asíncrona** entre servicios usando colas y mensajes.  
+Se usa para:
+
+- Procesar colas de trabajos (notificaciones, emails, reportes).  
+- Desacoplar microservicios (por ejemplo, un servicio publica un evento y otro lo consume).
+
+---
+
+## Entity Framework Core
+
+### ¿Qué es Entity Framework Core?
+
+Entity Framework Core es un **ORM (Object‑Relational Mapper)** ligero, multiplataforma y de código abierto para .NET.  
+Permite trabajar con bases de datos relacionales usando clases C# en lugar de escribir SQL directo.
+
+### ¿Qué es DbContext y DbSet?
+
+- **`DbContext`**: clase principal que representa la “sesión” con la base de datos; gestiona conexiones, cambios, transacciones y operaciones con las entidades.  
+- **`DbSet<T>`**: propiedad de `DbContext` que representa una colección de entidades de tipo `T` y permite consultas, inserciones, actualizaciones y eliminaciones.
+
+### Database First
+
+En **Database‑First**, se parte de una base de datos existente y se genera el mapeo (entidades y `DbContext`) a partir del esquema de la BD.  
+Es útil cuando ya existe una base de datos consolidada.
+
+### Code First
+
+En **Code First**, se define el modelo de dominio en C# (clases POCO) y EF Core **crea o migra** el esquema de la base de datos a partir de esas clases.  
+Se suele usar con migraciones (`Add-Migration`, `Update-Database`).
+
+### Claves foráneas
+
+Las **claves foráneas** se representan con propiedades en las entidades que apuntan al valor de la clave principal de otra entidad.  
+EF Core puede inferirlas por convención o configurarlas explícitamente en `OnModelCreating`.
+
+---
+
+##  Web API y API REST en C#
+
+### Web API
+
+Una **Web API** en C# suele referirse a una **API HTTP** construida con **ASP.NET Core Web API** que expone recursos accesibles vía HTTP (normalmente en formato JSON).
+
+### API REST en C#
+
+REST es un estilo de arquitectura, no un framework. En C# se implementa exponiendo recursos como:
+
+- `GET    /api/usuarios`     → listar.  
+- `POST   /api/usuarios`     → crear.  
+- `PUT    /api/usuarios/{id}` → actualizar.  
+- `DELETE /api/usuarios/{id}` → borrar.
+
+Se usa convención de URIs, HTTP y JSON, normalmente con controllers y `IActionResult`.
+
+---
+
+##  Métodos HTTP y códigos de respuesta
+
+### Métodos HTTP comunes
+
+- `GET`: recuperar datos.  
+- `POST`: crear un recurso.  
+- `PUT`: actualizar un recurso completo.  
+- `DELETE`: eliminar un recurso.  
+- `OPTIONS`: preflight en CORS (pregunta qué métodos/headers acepta el servidor).
+
+### Códigos de respuesta (40x, 50x)
+
+- **400 (cliente)**: errores de la solicitud (400, 401, 403, 404, etc.).  
+- **500 (servidor)**: errores internos (500, 503, etc.).
+
+En C# se devuelven con métodos como `Ok()`, `BadRequest()`, `NotFound()`, `StatusCode(500)`, etc.
+
+---
+
+## Diferencia entre DTO y entidad
+
+| Aspecto            | Entidad (EF Core)                          | DTO (Data Transfer Object)                          |
+|--------------------|--------------------------------------------|-----------------------------------------------------|
+| Propósito          | Modelo de dominio; mapea a la BD.          | Modelo de transporte para la API.                   |
+| Contenido          | Campos que reflejan la tabla.              | Campos filtrados, agregados o transformados.        |
+| Uso típico         | En repositorios y capa de datos.           | En controladores como respuesta/solicitud.          |
+
+Se recomienda **no devolver entidades directamente** en la API: usar DTOs para separar contrato y modelo de dominio.
+
+---
+
+##  Estructura de una aplicación
+
+En una API típica con C# se suele organizar así:
+
+- **Presentation / API**: controladores, DTOs, validación, filtros.  
+- **Application / Services**: lógica de negocio y casos de uso.  
+- **Domain**: entidades, value objects, interfaces de repositorio.  
+- **Infrastructure**: EF Core, repositorios concretos, configuración, RabbitMQ.  
+- **Shared / Core**: utilidades, configuraciones comunes, extensiones.
+
+---
+
+##  Inyección de dependencias
+
+En .NET Core la **inyección de dependencias** permite registrar servicios en el contenedor y que el framework los inyecte automáticamente (por ejemplo, en constructores de controllers o servicios).  
+Se suele usar:
+
+- `services.AddScoped<IUsuarioService, UsuarioService>()`.  
+- `services.AddTransient<IMyService, MyService>()`.  
+- `services.AddSingleton<ICache, Cache>()`.
+
+---
+
+##  Principios SOLID
+
+- **SRP (Single Responsibility)**: una clase tiene un solo motivo para cambiar.  
+- **OCP (Open/Closed)**: abierta para extensión, cerrada para modificación.  
+- **LSP (Liskov Substitution)**: las subclases deben poder sustituir a sus superclases.  
+- **ISP (Interface Segregation)**: interfaces pequeñas y específicas.  
+- **DIP (Dependency Inversion)**: depende de abstracciones, no de detalles concretos.
+
+Estos principios ayudan a crear capas y servicios limpios y mantenibles.
+
+---
+
+##  Arquitectura en N capas
+
+La **arquitectura en capas** separa la aplicación en niveles lógicos:
+
+- Capa UI / API.  
+- Capa de aplicación (servicios).  
+- Capa de dominio.  
+- Capa de infraestructura (BD, mensajería, etc.).
+
+Cada capa solo “habla” con la inmediata superior o inferior, lo que mejora mantenimiento y testeabilidad.
+
+---
+
+## Programación asíncrona
+
+En C# se usa **async/await** para operaciones I/O (consultas a BD, llamadas HTTP, mensajería) sin bloquear hilos.  
+En EF Core y APIs:
+
+- Métodos como `ToListAsync()`, `FirstOrDefaultAsync()`, `SaveChangesAsync()`.  
+- Acciones de controlador como `Task<IActionResult>` o `Task<T>`.
+
+---
+
+##  Docker
+
+Docker permite empaquetar una aplicación y sus dependencias en **contenedores** aislados.  
+Herramientas típicas:
+
+- `Dockerfile`: define la imagen (base, publicación, puertos, etc.).  
+- `docker-compose.yml`: orquesta servicios (API, base de datos, RabbitMQ, etc.).
+
+---
+
+##  Kubernetes
+
+**Kubernetes** es una plataforma de orquestación de contenedores para desplegar y gestionar aplicaciones distribuidas en entornos de producción.  
+Se usa para:
+
+- Escalar servicios automáticamente.  
+- Gestionar balanceo de carga, despliegues progresivos y recuperación ante fallos.
+
+---
+

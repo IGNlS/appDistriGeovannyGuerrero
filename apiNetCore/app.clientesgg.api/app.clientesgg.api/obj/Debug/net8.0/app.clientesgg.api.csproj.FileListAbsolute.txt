@@ -1,0 +1,8 @@
+C:\Users\ignis\OneDrive\Escritorio\codigo\app.clientesgg.api\app.clientesgg.api\obj\Debug\net8.0\app.clientesgg.api.csproj.AssemblyReference.cache
+C:\Users\ignis\OneDrive\Escritorio\codigo\app.clientesgg.api\app.clientesgg.api\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\ignis\OneDrive\Escritorio\codigo\app.clientesgg.api\app.clientesgg.api\obj\Debug\net8.0\app.clientesgg.api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ignis\OneDrive\Escritorio\codigo\app.clientesgg.api\app.clientesgg.api\obj\Debug\net8.0\app.clientesgg.api.AssemblyInfoInputs.cache
+C:\Users\ignis\OneDrive\Escritorio\codigo\app.clientesgg.api\app.clientesgg.api\obj\Debug\net8.0\app.clientesgg.api.AssemblyInfo.cs
+C:\Users\ignis\OneDrive\Escritorio\codigo\app.clientesgg.api\app.clientesgg.api\obj\Debug\net8.0\app.clientesgg.api.csproj.CoreCompileInputs.cache
+C:\Users\ignis\OneDrive\Escritorio\codigo\app.clientesgg.api\app.clientesgg.api\obj\Debug\net8.0\app.clientesgg.api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ignis\OneDrive\Escritorio\codigo\app.clientesgg.api\app.clientesgg.api\obj\Debug\net8.0\app.clientesgg.api.MvcApplicationPartsAssemblyInfo.cache

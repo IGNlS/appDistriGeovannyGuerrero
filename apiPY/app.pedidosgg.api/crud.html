@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRUD Clientes y Direcciones</title>
+
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Estilo general de la página */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 24px;
+      color: #222;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+    }
+
+    /* Contenedor de las dos secciones */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* Tarjetas blancas */
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    /* Caja de mensajes */
+    .alert {
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: none;
+    }
+
+    .alert.error {
+      background: #ffe3e3;
+      color: #a61e1e;
+      display: block;
+    }
+
+    .alert.ok {
+      background: #dff7e3;
+      color: #1d6b2f;
+      display: block;
+    }
+
+    /* Formulario */
+    form {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    input, select {
+      padding: 10px 12px;
+      border: 1px solid #cfd6dd;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-primary { background: #2563eb; color: #fff; }
+    .btn-secondary { background: #475569; color: #fff; }
+    .btn-warning { background: #f59e0b; color: #fff; }
+    .btn-danger { background: #dc2626; color: #fff; }
+    .btn-success { background: #16a34a; color: #fff; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      background: #fff;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>CRUD Clientes y Direcciones</h1>
+
+  <!-- Mensajes globales de error o éxito -->
+  <div id="globalMsg" class="alert"></div>
+
+  <div class="container">
+    <!-- BLOQUE CLIENTES -->
+    <section class="card">
+      <h2>Clientes</h2>
+
+      <form id="clienteForm">
+        <!-- ID oculto, sirve para saber si es crear o editar -->
+        <input type="hidden" id="clienteId" value="0" />
+
+        <div class="row">
+          <input id="nombre" placeholder="Nombre" required />
+          <input id="apellido" placeholder="Apellido" required />
+        </div>
+
+        <div class="row">
+          <input id="email" type="email" placeholder="Email" required />
+          <input id="telefono" placeholder="Teléfono" required />
+        </div>
+
+        <div class="row">
+          <input id="cedulaIdentidad" placeholder="Cédula identidad" required />
+          <input id="fechaNacimiento" type="date" required />
+        </div>
+
+        <div class="row">
+          <select id="estado">
+            <option value="true">Activo</option>
+            <option value="false">Inactivo</option>
+          </select>
+
+          <input disabled value="POST crea / PUT actualiza según ID" />
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn-primary">Guardar cliente</button>
+          <button type="button" class="btn-secondary" onclick="limpiarCliente()">Limpiar</button>
+          <button type="button" class="btn-success" onclick="listarClientes()">Recargar clientes</button>
+        </div>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="clientesBody"></tbody>
+      </table>
+    </section>
+
+    <!-- BLOQUE DIRECCIONES -->
+    <section class="card">
+      <h2>Direcciones Cliente</h2>
+
+      <form id="direccionForm">
+        <input type="hidden" id="direccionId" value="0" />
+
+        <div class="row">
+          <input id="clienteIdDir" type="number" placeholder="ClienteId" required />
+          <input id="ciudad" placeholder="Ciudad" required />
+        </div>
+
+        <input id="direccion" placeholder="Dirección" required />
+        <input id="referencia" placeholder="Referencia" required />
+
+        <div class="actions">
+          <button type="submit" class="btn-primary">Guardar dirección</button>
+          <button type="button" class="btn-secondary" onclick="limpiarDireccion()">Limpiar</button>
+          <button type="button" class="btn-success" onclick="listarDirecciones()">Recargar direcciones</button>
+        </div>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>ClienteId</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="direccionesBody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    // Atajo para buscar elementos por id
+    const $ = (id) => document.getElementById(id);
+
+    // Muestra mensajes arriba del formulario
+    function showMsg(message, type = "ok") {
+      const el = $("globalMsg");
+      el.className = "alert " + type;
+      el.textContent = message;
+    }
+
+    // Limpia mensajes
+    function clearMsg() {
+      const el = $("globalMsg");
+      el.className = "alert";
+      el.textContent = "";
+    }
+
+    // Construye el objeto JSON del cliente desde el formulario
+    function clientePayload() {
+      return {
+        id: Number($("clienteId").value || 0),
+        estado: $("estado").value === "true",
+        nombre: $("nombre").value.trim(),
+        apellido: $("apellido").value.trim(),
+        email: $("email").value.trim(),
+        cedulaIdentidad: $("cedulaIdentidad").value.trim(),
+        fechaNacimiento: $("fechaNacimiento").value,
+        telefono: $("telefono").value.trim()
+      };
+    }
+
+    // Construye el objeto JSON de dirección desde el formulario
+    function direccionPayload() {
+      return {
+        id: Number($("direccionId").value || 0),
+        clienteId: Number($("clienteIdDir").value || 0),
+        direccion: $("direccion").value.trim(),
+        ciudad: $("ciudad").value.trim(),
+        referencia: $("referencia").value.trim()
+      };
+    }
+
+    // =========================
+    // CLIENTES
+    // =========================
+
+    // LISTAR CLIENTES
+    // AQUÍ CONSUME LA API: GET /api/Cliente/obtener-todos
+    async function listarClientes() {
+      try {
+        clearMsg();
+
+        const response = await fetch('/api/Cliente/obtener-todos');
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        const items = Array.isArray(data) ? data : (data.result || []);
+
+        $("clientesBody").innerHTML = items.map(c => `
+          <tr>
+            <td>${c.id ?? ""}</td>
+            <td>${c.nombre ?? ""} ${c.apellido ?? ""}</td>
+            <td>${c.email ?? ""}</td>
+            <td>
+              <button class="btn-warning" onclick='editarCliente(${JSON.stringify(c)})'>Editar</button>
+              <button class="btn-danger" onclick="eliminarCliente(${c.id})">Eliminar</button>
+            </td>
+          </tr>
+        `).join("");
+
+      } catch (e) {
+        showMsg(`Error al listar clientes: ${e.message}`, "error");
+      }
+    }
+
+    // GUARDAR O ACTUALIZAR CLIENTE
+    async function guardarCliente(e) {
+      e.preventDefault();
+
+      try {
+        clearMsg();
+
+        const payload = clientePayload();
+        const id = payload.id;
+
+        // Si tiene ID, hace PUT
+        if (id > 0) {
+          // AQUÍ CONSUME LA API: PUT /api/Cliente/{id}
+          const response = await fetch(`/api/Cliente/${id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || `HTTP ${response.status}`);
+          }
+
+          showMsg("Cliente actualizado correctamente");
+        } else {
+          // Si no tiene ID, hace POST
+          // AQUÍ CONSUME LA API: POST /api/Cliente
+          const response = await fetch(`/api/Cliente`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || `HTTP ${response.status}`);
+          }
+
+          showMsg("Cliente guardado correctamente");
+        }
+
+        limpiarCliente();
+        listarClientes();
+
+      } catch (e2) {
+        showMsg(`Error al guardar cliente: ${e2.message}`, "error");
+      }
+    }
+
+    // Carga un cliente en el formulario para editar
+    function editarCliente(c) {
+      $("clienteId").value = c.id ?? 0;
+      $("nombre").value = c.nombre ?? "";
+      $("apellido").value = c.apellido ?? "";
+      $("email").value = c.email ?? "";
+      $("telefono").value = c.telefono ?? "";
+      $("cedulaIdentidad").value = c.cedulaIdentidad ?? "";
+      $("estado").value = String(c.estado ?? true);
+
+      if (c.fechaNacimiento) {
+        $("fechaNacimiento").value = String(c.fechaNacimiento).substring(0, 10);
+      }
+    }
+
+    // ELIMINAR CLIENTE
+    // AQUÍ CONSUME LA API: DELETE /api/Cliente/{id}
+    async function eliminarCliente(id) {
+      if (!confirm(`¿Eliminar cliente ${id}?`)) return;
+
+      try {
+        const response = await fetch(`/api/Cliente/${id}`, {
+          method: "DELETE"
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(errorText || `HTTP ${response.status}`);
+        }
+
+        showMsg("Cliente eliminado correctamente");
+        listarClientes();
+
+      } catch (e) {
+        showMsg(`Error al eliminar cliente: ${e.message}`, "error");
+      }
+    }
+
+    // Limpia el formulario de clientes
+    function limpiarCliente() {
+      $("clienteId").value = 0;
+      $("nombre").value = "";
+      $("apellido").value = "";
+      $("email").value = "";
+      $("telefono").value = "";
+      $("cedulaIdentidad").value = "";
+      $("fechaNacimiento").value = "";
+      $("estado").value = "true";
+    }
+
+    // =========================
+    // DIRECCIONES
+    // =========================
+
+    // LISTAR DIRECCIONES
+    // AQUÍ CONSUME LA API: GET /api/DireccionCliente/obtener-todos
+    async function listarDirecciones() {
+      try {
+        clearMsg();
+
+        const response = await fetch('/api/DireccionCliente/obtener-todos');
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        const items = Array.isArray(data) ? data : (data.result || []);
+
+        $("direccionesBody").innerHTML = items.map(d => `
+          <tr>
+            <td>${d.id ?? ""}</td>
+            <td>${d.clienteId ?? ""}</td>
+            <td>${d.direccion ?? ""}</td>
+            <td>
+              <button class="btn-warning" onclick='editarDireccion(${JSON.stringify(d)})'>Editar</button>
+              <button class="btn-danger" onclick="eliminarDireccion(${d.id})">Eliminar</button>
+            </td>
+          </tr>
+        `).join("");
+
+      } catch (e) {
+        showMsg(`Error al listar direcciones: ${e.message}`, "error");
+      }
+    }
+
+    // GUARDAR O ACTUALIZAR DIRECCIÓN
+    async function guardarDireccion(e) {
+      e.preventDefault();
+
+      try {
+        clearMsg();
+
+        const payload = direccionPayload();
+        const id = payload.id;
+
+        // Si tiene ID, actualiza
+        if (id > 0) {
+          // AQUÍ CONSUME LA API: PUT /api/DireccionCliente/{id}
+          const response = await fetch(`/api/DireccionCliente/${id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || `HTTP ${response.status}`);
+          }
+
+          showMsg("Dirección actualizada correctamente");
+        } else {
+          // Si no tiene ID, crea
+          // AQUÍ CONSUME LA API: POST /api/DireccionCliente
+          const response = await fetch(`/api/DireccionCliente`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || `HTTP ${response.status}`);
+          }
+
+          showMsg("Dirección guardada correctamente");
+        }
+
+        limpiarDireccion();
+        listarDirecciones();
+
+      } catch (e2) {
+        showMsg(`Error al guardar dirección: ${e2.message}`, "error");
+      }
+    }
+
+    // Carga la dirección en el formulario
+    function editarDireccion(d) {
+      $("direccionId").value = d.id ?? 0;
+      $("clienteIdDir").value = d.clienteId ?? "";
+      $("direccion").value = d.direccion ?? "";
+      $("ciudad").value = d.ciudad ?? "";
+      $("referencia").value = d.referencia ?? "";
+    }
+
+    // ELIMINAR DIRECCIÓN
+    // AQUÍ CONSUME LA API: DELETE /api/DireccionCliente/{id}
+    async function eliminarDireccion(id) {
+      if (!confirm(`¿Eliminar dirección ${id}?`)) return;
+
+      try {
+        const response = await fetch(`/api/DireccionCliente/${id}`, {
+          method: "DELETE"
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(errorText || `HTTP ${response.status}`);
+        }
+
+        showMsg("Dirección eliminada correctamente");
+        listarDirecciones();
+
+      } catch (e) {
+        showMsg(`Error al eliminar dirección: ${e.message}`, "error");
+      }
+    }
+
+    // Limpia el formulario de dirección
+    function limpiarDireccion() {
+      $("direccionId").value = 0;
+      $("clienteIdDir").value = "";
+      $("direccion").value = "";
+      $("ciudad").value = "";
+      $("referencia").value = "";
+    }
+
+    // Eventos submit de los formularios
+    $("clienteForm").addEventListener("submit", guardarCliente);
+    $("direccionForm").addEventListener("submit", guardarDireccion);
+
+    // Carga datos al abrir la página
+    listarClientes();
+    listarDirecciones();
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="app.clientesgg.api/app.clientesgg.api.csproj" />
+  <Project Path="app.clientesgg.commom/app.clientesgg.commom.csproj" />
+  <Project Path="app.clientesgg.dataAccess/app.clientesgg.dataAccess.csproj" />
+  <Project Path="app.clientesgg.entities/app.clientesgg.entities.csproj" />
+  <Project Path="app.clientesgg.services/app.clientesgg.services.csproj" />
+</Solution>

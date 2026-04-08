@@ -1,0 +1,428 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\interfaces\\idireccionclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|solutionrelative:app.clientesgg.services\\interfaces\\idireccionclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\interfaces\\iclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|solutionrelative:app.clientesgg.services\\interfaces\\iclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\implementations\\direccionclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|solutionrelative:app.clientesgg.services\\implementations\\direccionclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\implementations\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|solutionrelative:app.clientesgg.services\\implementations\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\eventmq\\rabbitmqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|solutionrelative:app.clientesgg.services\\eventmq\\rabbitmqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\app.clientesgg.services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|solutionrelative:app.clientesgg.services\\app.clientesgg.services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\eventmq\\irabbitmqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B30AECD5-9615-447E-8EF0-2A75763849C4}|app.clientesgg.services\\app.clientesgg.services.csproj|solutionrelative:app.clientesgg.services\\eventmq\\irabbitmqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1518DDF-1687-4795-AB0A-A6051B98C705}|app.clientesgg.entities\\app.clientesgg.entities.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.entities\\models\\entidadesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1518DDF-1687-4795-AB0A-A6051B98C705}|app.clientesgg.entities\\app.clientesgg.entities.csproj|solutionrelative:app.clientesgg.entities\\models\\entidadesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataaccess\\repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|solutionrelative:app.clientesgg.dataaccess\\repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataaccess\\repositories\\crudgenericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|solutionrelative:app.clientesgg.dataaccess\\repositories\\crudgenericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataaccess\\repositories\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|solutionrelative:app.clientesgg.dataaccess\\repositories\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataaccess\\repositories\\idireccionclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|solutionrelative:app.clientesgg.dataaccess\\repositories\\idireccionclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataaccess\\repositories\\direccionclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|solutionrelative:app.clientesgg.dataaccess\\repositories\\direccionclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataaccess\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|solutionrelative:app.clientesgg.dataaccess\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataaccess\\migrations\\20260314164450_creacionbdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|solutionrelative:app.clientesgg.dataaccess\\migrations\\20260314164450_creacionbdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataaccess\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|solutionrelative:app.clientesgg.dataaccess\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataaccess\\app.clientesgg.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D0B37897-79F2-4D2E-BA66-36D6F46F2282}|app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj|solutionrelative:app.clientesgg.dataaccess\\app.clientesgg.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\app.clientesgg.commom.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|solutionrelative:app.clientesgg.commom\\app.clientesgg.commom.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\dtos\\objetosdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|solutionrelative:app.clientesgg.commom\\dtos\\objetosdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\dtos\\direccionclientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|solutionrelative:app.clientesgg.commom\\dtos\\direccionclientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\dtos\\clientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|solutionrelative:app.clientesgg.commom\\dtos\\clientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\dtos\\baseresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE7A273-85C0-47C7-8410-AE6F74B03D60}|app.clientesgg.commom\\app.clientesgg.commom.csproj|solutionrelative:app.clientesgg.commom\\dtos\\baseresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B7BD0D5-F18A-4F3D-9A44-C76D4F7184C0}|app.clientesgg.api\\app.clientesgg.api.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.api\\controllers\\direccionclientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B7BD0D5-F18A-4F3D-9A44-C76D4F7184C0}|app.clientesgg.api\\app.clientesgg.api.csproj|solutionrelative:app.clientesgg.api\\controllers\\direccionclientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B7BD0D5-F18A-4F3D-9A44-C76D4F7184C0}|app.clientesgg.api\\app.clientesgg.api.csproj|c:\\users\\ignis\\onedrive\\escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.api\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B7BD0D5-F18A-4F3D-9A44-C76D4F7184C0}|app.clientesgg.api\\app.clientesgg.api.csproj|solutionrelative:app.clientesgg.api\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IDireccionClienteService.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\Interfaces\\IDireccionClienteService.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.services\\Interfaces\\IDireccionClienteService.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\Interfaces\\IDireccionClienteService.cs",
+              "RelativeToolTip": "app.clientesgg.services\\Interfaces\\IDireccionClienteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:12:43.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IClienteService.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\Interfaces\\IClienteService.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.services\\Interfaces\\IClienteService.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\Interfaces\\IClienteService.cs",
+              "RelativeToolTip": "app.clientesgg.services\\Interfaces\\IClienteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:12:22.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DireccionClienteService.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\Implementations\\DireccionClienteService.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.services\\Implementations\\DireccionClienteService.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\Implementations\\DireccionClienteService.cs",
+              "RelativeToolTip": "app.clientesgg.services\\Implementations\\DireccionClienteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:11:58.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClienteService.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\Implementations\\ClienteService.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.services\\Implementations\\ClienteService.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\Implementations\\ClienteService.cs",
+              "RelativeToolTip": "app.clientesgg.services\\Implementations\\ClienteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:11:13.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RabbitMQService.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\EventMQ\\RabbitMQService.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.services\\EventMQ\\RabbitMQService.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\EventMQ\\RabbitMQService.cs",
+              "RelativeToolTip": "app.clientesgg.services\\EventMQ\\RabbitMQService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:10:35.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IRabbitMQService.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\EventMQ\\IRabbitMQService.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.services\\EventMQ\\IRabbitMQService.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\EventMQ\\IRabbitMQService.cs",
+              "RelativeToolTip": "app.clientesgg.services\\EventMQ\\IRabbitMQService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:10:18.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "app.clientesgg.services",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\app.clientesgg.services.csproj",
+              "RelativeDocumentMoniker": "app.clientesgg.services\\app.clientesgg.services.csproj",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.services\\app.clientesgg.services.csproj",
+              "RelativeToolTip": "app.clientesgg.services\\app.clientesgg.services.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-08T16:09:30.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EntidadesModel.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.entities\\models\\EntidadesModel.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.entities\\models\\EntidadesModel.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.entities\\models\\EntidadesModel.cs",
+              "RelativeToolTip": "app.clientesgg.entities\\models\\EntidadesModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:07:43.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IDireccionClienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\IDireccionClienteRepository.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.dataAccess\\repositories\\IDireccionClienteRepository.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\IDireccionClienteRepository.cs",
+              "RelativeToolTip": "app.clientesgg.dataAccess\\repositories\\IDireccionClienteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:04:45.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IClienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\IClienteRepository.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.dataAccess\\repositories\\IClienteRepository.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\IClienteRepository.cs",
+              "RelativeToolTip": "app.clientesgg.dataAccess\\repositories\\IClienteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:04:34.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DireccionClienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\DireccionClienteRepository.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.dataAccess\\repositories\\DireccionClienteRepository.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\DireccionClienteRepository.cs",
+              "RelativeToolTip": "app.clientesgg.dataAccess\\repositories\\DireccionClienteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:04:15.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CrudGenericService.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\CrudGenericService.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.dataAccess\\repositories\\CrudGenericService.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\CrudGenericService.cs",
+              "RelativeToolTip": "app.clientesgg.dataAccess\\repositories\\CrudGenericService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:04:02.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ClienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\ClienteRepository.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.dataAccess\\repositories\\ClienteRepository.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\repositories\\ClienteRepository.cs",
+              "RelativeToolTip": "app.clientesgg.dataAccess\\repositories\\ClienteRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAADwvyAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:03:15.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.dataAccess\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "app.clientesgg.dataAccess\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:02:25.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20260314164450_creacionBdd.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\Migrations\\20260314164450_creacionBdd.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.dataAccess\\Migrations\\20260314164450_creacionBdd.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\Migrations\\20260314164450_creacionBdd.cs",
+              "RelativeToolTip": "app.clientesgg.dataAccess\\Migrations\\20260314164450_creacionBdd.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:01:55.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\context\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.dataAccess\\context\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\context\\AppDbContext.cs",
+              "RelativeToolTip": "app.clientesgg.dataAccess\\context\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T16:00:16.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "app.clientesgg.dataAccess",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj",
+              "RelativeDocumentMoniker": "app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj",
+              "RelativeToolTip": "app.clientesgg.dataAccess\\app.clientesgg.dataAccess.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-08T16:00:02.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ObjetosDTO.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\DTOs\\ObjetosDTO.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.commom\\DTOs\\ObjetosDTO.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\DTOs\\ObjetosDTO.cs",
+              "RelativeToolTip": "app.clientesgg.commom\\DTOs\\ObjetosDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T15:58:18.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DireccionClienteDto.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\DTOs\\DireccionClienteDto.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.commom\\DTOs\\DireccionClienteDto.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\DTOs\\DireccionClienteDto.cs",
+              "RelativeToolTip": "app.clientesgg.commom\\DTOs\\DireccionClienteDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T15:58:05.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ClienteDTO.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\DTOs\\ClienteDTO.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.commom\\DTOs\\ClienteDTO.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\DTOs\\ClienteDTO.cs",
+              "RelativeToolTip": "app.clientesgg.commom\\DTOs\\ClienteDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T15:57:51.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "BaseResponse.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\DTOs\\BaseResponse.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.commom\\DTOs\\BaseResponse.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\DTOs\\BaseResponse.cs",
+              "RelativeToolTip": "app.clientesgg.commom\\DTOs\\BaseResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T15:57:38.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "app.clientesgg.commom",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\app.clientesgg.commom.csproj",
+              "RelativeDocumentMoniker": "app.clientesgg.commom\\app.clientesgg.commom.csproj",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.commom\\app.clientesgg.commom.csproj",
+              "RelativeToolTip": "app.clientesgg.commom\\app.clientesgg.commom.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-08T15:57:07.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "DireccionClienteController.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.api\\Controllers\\DireccionClienteController.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.api\\Controllers\\DireccionClienteController.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.api\\Controllers\\DireccionClienteController.cs",
+              "RelativeToolTip": "app.clientesgg.api\\Controllers\\DireccionClienteController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T15:53:03.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.api\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "app.clientesgg.api\\Controllers\\ClienteController.cs",
+              "ToolTip": "C:\\Users\\ignis\\OneDrive\\Escritorio\\codigo\\app.clientesgg.api\\app.clientesgg.api\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "app.clientesgg.api\\Controllers\\ClienteController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T15:52:28.394Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

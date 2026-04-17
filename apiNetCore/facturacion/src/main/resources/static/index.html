@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ignis Pro Billing</title>
+    <style>
+        :root { --bg: #0f172a; --card: #1e293b; --primary: #6366f1; --text: #f8fafc; --warn: #f59e0b; --danger: #ef4444; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .container { display: flex; gap: 20px; width: 95%; max-width: 1200px; }
+        .card { background: var(--card); padding: 20px; border-radius: 12px; flex: 1; border: 1px solid #334155; }
+        input { width: 100%; padding: 10px; margin: 8px 0; background: #0f172a; border: 1px solid #334155; color: white; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; cursor: pointer; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #334155; }
+        .btn-edit { background: var(--warn); width: auto; padding: 5px 10px; font-size: 11px; margin-right: 5px; }
+        .btn-delete { background: var(--danger); width: auto; padding: 5px 10px; font-size: 11px; }
+    </style>
+</head>
+<body>
+    <h2>Facturacion Ignis</h2>
+    <div class="container">
+        <div class="card" style="max-width: 350px;">
+            <h3>Nueva Factura</h3>
+            <input type="text" id="nombre" placeholder="Cliente">
+            <input type="text" id="direccion" placeholder="Dirección">
+            <input type="email" id="correo" placeholder="Correo">
+            <input type="number" id="pedidoId" placeholder="ID Pedido">
+            <input type="number" id="total" placeholder="Total $">
+            <button id="mainBtn" onclick="enviar()">Guardar Factura</button>
+            <div id="status" style="text-align:center; margin-top:10px; color:#10b981;"></div>
+        </div>
+        <div class="card">
+            <h3>Registros PostgreSQL</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>NÚMERO</th>
+                        <th>CLIENTE</th>
+                        <th>DIRECCIÓN</th>
+                        <th>TOTAL</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let editId = null;
+
+        async function cargar() {
+            const res = await fetch('/facturas');
+            const data = await res.json();
+            document.getElementById('tabla').innerHTML = data.map(f => `
+                <tr>
+                    <td>${f.numeroFactura || '---'}</td>
+                    <td>${f.nombreCliente}</td>
+                    <td>${f.direccionCliente || '---'}</td>
+                    <td>$${f.total}</td>
+                    <td>
+                        <button class="btn-edit" onclick="editar(${f.id})">EDITAR</button>
+                        <button class="btn-delete" onclick="borrar(${f.id})">BORRAR</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function enviar() {
+            const f = {
+                nombreCliente: document.getElementById('nombre').value,
+                direccionCliente: document.getElementById('direccion').value,
+                correoCliente: document.getElementById('correo').value,
+                pedidoId: document.getElementById('pedidoId').value,
+                total: document.getElementById('total').value
+            };
+
+            if(editId) {
+                await fetch('/facturas/'+editId, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(f) });
+                editId = null; location.reload();
+            } else {
+                await fetch('/api/mensajes/enviar-pro', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(f) });
+                setTimeout(cargar, 1000);
+            }
+        }
+
+        async function borrar(id) { if(confirm("¿Borrar?")) { await fetch('/facturas/'+id, {method:'DELETE'}); cargar(); } }
+
+        async function editar(id) {
+            const res = await fetch('/facturas/'+id);
+            const f = await res.json();
+            document.getElementById('nombre').value = f.nombreCliente;
+            document.getElementById('direccion').value = f.direccionCliente;
+            document.getElementById('correo').value = f.correoCliente;
+            document.getElementById('pedidoId').value = f.pedidoId;
+            document.getElementById('total').value = f.total;
+            editId = id;
+            document.getElementById('mainBtn').innerText = "ACTUALIZAR EN BD";
+            document.getElementById('mainBtn').style.background = "#f59e0b";
+        }
+
+        cargar();
+    </script>
+</body>
+</html>

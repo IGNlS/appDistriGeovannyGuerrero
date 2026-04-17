@@ -367,3 +367,242 @@ Se usa para:
 
 ---
 
+
+
+
+
+
+
+# Microservicio de Facturación - Spring Boot
+
+Microservicio desarrollado en **Java Spring Boot** para la gestión de facturas mediante un API REST CRUD, con persistencia en **PostgreSQL** y arquitectura en capas.
+
+Este proyecto forma parte de una arquitectura basada en microservicios, donde previamente existe un microservicio **subscriber** que consume eventos desde RabbitMQ y almacena los pedidos en la tabla `pedidos`. A partir de esa tabla, este microservicio permite registrar y administrar facturas relacionadas con cada pedido.
+
+## Objetivo
+
+Implementar un API REST completo para la gestión de facturas, aplicando buenas prácticas de desarrollo, conexión a base de datos PostgreSQL y separación por capas.
+
+## Tecnologías utilizadas
+
+- Java 17+
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- PostgreSQL
+- Maven
+- Lombok
+- Jakarta Validation
+- Postman para pruebas
+
+## Arquitectura
+
+El proyecto está organizado siguiendo arquitectura en capas:
+
+- **Controller**: expone los endpoints REST.
+- **Service**: contiene la lógica de negocio.
+- **Repository**: acceso a datos mediante JPA.
+- **Entity**: mapeo de tablas en PostgreSQL.
+- **DTO**: transporte de datos entre cliente y servidor.
+- **Exception**: manejo global de errores.
+
+## Relación entre tablas
+
+Este microservicio trabaja con dos tablas:
+
+- `pedidos`: ya existente en la base de datos, llenada por el subscriber.
+- `facturas`: creada en este proyecto.
+
+La tabla `facturas` se relaciona con `pedidos` mediante una clave foránea:
+
+- Una factura pertenece a un pedido.
+- Un pedido puede tener una o varias facturas, dependiendo de la regla de negocio implementada.
+
+## Estructura de la tabla `facturas`
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| id | Long | Identificador único autogenerado |
+| pedido_id | Long | Clave foránea hacia la tabla `pedidos` |
+| numero_factura | String | Número de factura único |
+| fecha_factura | LocalDateTime | Fecha y hora de emisión |
+| total | BigDecimal | Monto total facturado |
+
+## Endpoints disponibles
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| GET | `/facturas` | Obtener todas las facturas |
+| GET | `/facturas/{id}` | Obtener una factura por ID |
+| POST | `/facturas` | Crear una nueva factura |
+| PUT | `/facturas/{id}` | Actualizar una factura existente |
+| DELETE | `/facturas/{id}` | Eliminar una factura |
+
+## Estructura del proyecto
+
+```bash
+src
+└── main
+    ├── java/com/example/facturacion
+    │   ├── controller
+    │   ├── service
+    │   ├── service/impl
+    │   ├── repository
+    │   ├── entity
+    │   ├── dto
+    │   ├── exception
+    │   └── FacturacionApplication.java
+    └── resources
+        └── application.properties
+```
+
+## Configuración de base de datos
+
+En el archivo `src/main/resources/application.properties` configura tu conexión a PostgreSQL:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/tu_basedatos
+spring.datasource.username=postgres
+spring.datasource.password=123456
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+server.port=8082
+```
+
+## Script sugerido para la tabla `facturas`
+
+```sql
+CREATE TABLE facturas (
+    id BIGSERIAL PRIMARY KEY,
+    pedido_id BIGINT NOT NULL,
+    numero_factura VARCHAR(100) NOT NULL UNIQUE,
+    fecha_factura TIMESTAMP NOT NULL,
+    total NUMERIC(15,2) NOT NULL,
+    CONSTRAINT fk_factura_pedido
+        FOREIGN KEY (pedido_id)
+        REFERENCES pedidos(id)
+);
+```
+
+## Cómo ejecutar el proyecto
+
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/tu-usuario/tu-repositorio.git
+```
+
+2. Ingresar al proyecto:
+
+```bash
+cd tu-repositorio
+```
+
+3. Verificar que PostgreSQL esté levantado y que exista la base de datos.
+
+4. Configurar las credenciales en `application.properties`.
+
+5. Ejecutar el proyecto con Maven:
+
+```bash
+./mvnw spring-boot:run
+```
+
+O si usas Maven instalado:
+
+```bash
+mvn spring-boot:run
+```
+
+## Ejemplos de consumo
+
+### Crear factura
+
+**POST** `/facturas`
+
+```json
+{
+  "pedidoId": 1,
+  "numeroFactura": "FAC-0001",
+  "fechaFactura": "2026-04-17T13:00:00",
+  "total": 150.75
+}
+```
+
+### Obtener todas las facturas
+
+**GET** `/facturas`
+
+### Obtener factura por ID
+
+**GET** `/facturas/1`
+
+### Actualizar factura
+
+**PUT** `/facturas/1`
+
+```json
+{
+  "pedidoId": 1,
+  "numeroFactura": "FAC-0001-EDIT",
+  "fechaFactura": "2026-04-17T14:00:00",
+  "total": 200.00
+}
+```
+
+### Eliminar factura
+
+**DELETE** `/facturas/1`
+
+## Validaciones implementadas
+
+- `pedidoId` obligatorio.
+- `numeroFactura` obligatorio y único.
+- `fechaFactura` obligatoria.
+- `total` obligatorio y mayor a cero.
+- Validación de existencia del pedido antes de registrar la factura.
+
+## Manejo de errores
+
+El proyecto incluye manejo global de excepciones para responder con mensajes claros en casos como:
+
+- Factura no encontrada.
+- Pedido no encontrado.
+- Datos inválidos en la petición.
+- Número de factura duplicado.
+
+## Pruebas
+
+Los endpoints fueron probados con Postman usando operaciones CRUD completas:
+
+- Crear factura
+- Listar facturas
+- Buscar factura por ID
+- Actualizar factura
+- Eliminar factura
+
+## Buenas prácticas aplicadas
+
+- Arquitectura en capas.
+- Uso de DTOs para entrada y salida.
+- Validaciones con Bean Validation.
+- Manejo centralizado de excepciones.
+- Persistencia con Spring Data JPA.
+- Relación entre entidades mediante clave foránea.
+- Código desacoplado y mantenible.
+
+## Posibles mejoras
+
+- Integración con Swagger / OpenAPI.
+- Dockerización del servicio.
+- Tests unitarios e integración.
+- Seguridad con Spring Security.
+- Generación automática de número de factura.
+- Uso de perfiles `dev` y `prod`.
+
+## Autor
+
+Proyecto desarrollado como parte de una práctica de microservicios con Spring Boot, RabbitMQ y PostgreSQL.

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ignis Pro Billing</title>
+    <style>
+        :root { --bg: #0f172a; --card: #1e293b; --primary: #6366f1; --text: #f8fafc; --warn: #f59e0b; --danger: #ef4444; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .container { display: flex; gap: 20px; width: 95%; max-width: 1200px; }
+        .card { background: var(--card); padding: 20px; border-radius: 12px; flex: 1; border: 1px solid #334155; }
+        input { width: 100%; padding: 10px; margin: 8px 0; background: #0f172a; border: 1px solid #334155; color: white; border-radius: 6px; box-sizing: border-box; }
+        
+        .search-input { 
+            border: 2px solid var(--primary); 
+            margin-bottom: 15px; 
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%236366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            padding-left: 40px;
+        }
+
+        button { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; cursor: pointer; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #334155; }
+        .btn-edit { background: var(--warn); width: auto; padding: 5px 10px; font-size: 11px; margin-right: 5px; }
+        .btn-delete { background: var(--danger); width: auto; padding: 5px 10px; font-size: 11px; }
+    </style>
+</head>
+<body>
+    <h2>Facturacion Ignis</h2>
+    <div class="container">
+        <div class="card" style="max-width: 350px;">
+            <h3>Nueva Factura</h3>
+            <input type="text" id="nombre" placeholder="Cliente">
+            <input type="text" id="direccion" placeholder="Dirección">
+            <input type="email" id="correo" placeholder="Correo">
+            <input type="number" id="pedidoId" placeholder="ID Pedido">
+            <input type="text" id="total" placeholder="Total $ (Ej: 85.50)">
+            <button id="mainBtn" onclick="enviar()">Guardar Factura</button>
+            <div id="status" style="text-align:center; margin-top:10px; color:#10b981;"></div>
+        </div>
+
+        <div class="card">
+            <h3>Registros PostgreSQL</h3>
+            <input type="text" id="buscador" class="search-input" onkeyup="filtrarTabla()" placeholder="Buscar por Cliente, Dirección, ID o Número...">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>NÚMERO</th>
+                        <th>CLIENTE</th>
+                        <th>DIRECCIÓN</th>
+                        <th>TOTAL</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let editId = null;
+
+        function filtrarTabla() {
+            const filtro = document.getElementById('buscador').value.toLowerCase();
+            const filas = document.getElementById('tabla').getElementsByTagName('tr');
+            for (let i = 0; i < filas.length; i++) {
+                const texto = filas[i].innerText.toLowerCase();
+                filas[i].style.display = texto.includes(filtro) ? "" : "none";
+            }
+        }
+
+        async function cargar() {
+            try {
+                const res = await fetch('/facturas');
+                const data = await res.json();
+                document.getElementById('tabla').innerHTML = data.map(f => `
+                    <tr>
+                        <td style="color:#6366f1; font-weight:bold;">${f.numeroFactura || 'PROCESANDO...'}</td>
+                        <td>${f.nombreCliente}</td>
+                        <td>${f.direccionCliente || '---'}</td>
+                        <td>$${f.total}</td>
+                        <td>
+                            <button class="btn-edit" onclick="editar(${f.id})">EDITAR</button>
+                            <button class="btn-delete" onclick="borrar(${f.id})">BORRAR</button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (err) { console.error("Error al cargar datos", err); }
+        }
+
+        async function enviar() {
+            const status = document.getElementById('status');
+            // Validamos y limpiamos el total (cambiar coma por punto)
+            const totalLimpio = document.getElementById('total').value.replace(',', '.');
+            
+            const f = {
+                nombreCliente: document.getElementById('nombre').value,
+                direccionCliente: document.getElementById('direccion').value,
+                correoCliente: document.getElementById('correo').value,
+                pedidoId: parseInt(document.getElementById('pedidoId').value),
+                total: parseFloat(totalLimpio),
+                codigoPostal: "00000"
+            };
+
+            try {
+                if(editId) {
+                    // Edición Directa
+                    await fetch('/facturas/'+editId, { 
+                        method:'PUT', 
+                        headers:{'Content-Type':'application/json'}, 
+                        body:JSON.stringify(f) 
+                    });
+                    editId = null; 
+                    document.getElementById('mainBtn').innerText = "Guardar Factura";
+                    document.getElementById('mainBtn').style.background = "var(--primary)";
+                } else {
+                    // Nuevo vía RabbitMQ
+                    await fetch('/api/mensajes/enviar-pro', { 
+                        method:'POST', 
+                        headers:{'Content-Type':'application/json'}, 
+                        body:JSON.stringify(f) 
+                    });
+                    status.innerText = "🚀 Enviado a procesar...";
+                }
+
+                // Limpiar campos y refrescar
+                document.querySelectorAll('input:not(#buscador)').forEach(i => i.value = "");
+                setTimeout(() => {
+                    status.innerText = "";
+                    cargar();
+                }, 1500);
+
+            } catch (err) {
+                status.innerText = "❌ Error al conectar con el servidor";
+            }
+        }
+
+        async function borrar(id) { 
+            if(confirm("¿Seguro que quieres borrarlo?")) { 
+                await fetch('/facturas/'+id, {method:'DELETE'}); 
+                cargar(); 
+            } 
+        }
+
+        async function editar(id) {
+            const res = await fetch(`/facturas/${id}`);
+            const f = await res.json();
+            document.getElementById('nombre').value = f.nombreCliente;
+            document.getElementById('direccion').value = f.direccionCliente;
+            document.getElementById('correo').value = f.correoCliente;
+            document.getElementById('pedidoId').value = f.pedidoId;
+            document.getElementById('total').value = f.total;
+            editId = id;
+            document.getElementById('mainBtn').innerText = "ACTUALIZAR EN BD";
+        }
+
+        cargar();
+        setInterval(cargar, 3000); // Auto-refresco cada 3 segundos
+    </script>
+</body>
+</html>

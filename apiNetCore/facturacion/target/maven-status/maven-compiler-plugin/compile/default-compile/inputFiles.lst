@@ -1,0 +1,8 @@
+d:\ask\facturacion\src\main\java\com\example\facturacion\config\RabbitConfig.java
+d:\ask\facturacion\src\main\java\com\example\facturacion\consumer\PedidoConsumer.java
+d:\ask\facturacion\src\main\java\com\example\facturacion\controller\FacturaController.java
+d:\ask\facturacion\src\main\java\com\example\facturacion\controller\MensajeController.java
+d:\ask\facturacion\src\main\java\com\example\facturacion\FacturacionApplication.java
+d:\ask\facturacion\src\main\java\com\example\facturacion\model\Factura.java
+d:\ask\facturacion\src\main\java\com\example\facturacion\repository\FacturaRepository.java
+d:\ask\facturacion\src\main\java\com\example\facturacion\service\FacturaService.java

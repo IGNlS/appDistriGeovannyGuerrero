@@ -1,0 +1,8 @@
+com\example\facturacion\FacturacionApplication.class
+com\example\facturacion\service\FacturaService.class
+com\example\facturacion\controller\FacturaController.class
+com\example\facturacion\consumer\PedidoConsumer.class
+com\example\facturacion\model\Factura.class
+com\example\facturacion\repository\FacturaRepository.class
+com\example\facturacion\config\RabbitConfig.class
+com\example\facturacion\controller\MensajeController.class
